@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans text-slate-900 bg-white;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading font-black tracking-tight;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl;
+  }
+
+  .glass-dark {
+    @apply bg-slate-900/20 backdrop-blur-lg border border-white/10;
+  }
+
+  .neon-glow-orange {
+    @apply shadow-[0_0_30px_rgba(242,101,34,0.4)];
+  }
+
+  .text-gradient-orange {
+    @apply bg-gradient-to-r from-orange-950 to-orange-400 bg-clip-text text-transparent;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-xl font-black uppercase text-xs tracking-widest bg-orange-950 text-white hover:bg-orange-900 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-orange-950/40;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-xl font-black uppercase text-xs tracking-widest bg-slate-100 text-slate-900 border border-slate-200 hover:bg-slate-50 transition-all duration-300;
+  }
+
+  .container-max {
+    @apply max-w-7xl mx-auto px-6 lg:px-8;
+  }
+
+  .section-padding {
+    @apply py-24 md:py-32 lg:py-44;
+  }
+}
+
+/* Smooth animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-in;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.5s ease-out;
+}
