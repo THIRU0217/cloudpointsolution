@@ -6,7 +6,7 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
   
   return {
-    base: '/Cloud-Point-Solutions/',   // 👈 VERY IMPORTANT for GitHub Pages
+    base: '/cloudpointsolution/',   //  VERY IMPORTANT for GitHub Pages
     
     plugins: [react()],
     
