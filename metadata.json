@@ -1,0 +1,8 @@
+{
+  "name": "Cloud Point Solutions - Enterprise AI & SaaS",
+  "description": "Enterprise-grade platform for Cloud Point Solutions, specializing in AI Automation, SaaS development, and Corporate IT training across India and UAE.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}

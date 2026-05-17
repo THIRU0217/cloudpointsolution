@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../../VS Code"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "cloud-point-solutions---enterprise-ai-&-saas (3)"
+	}
+}
