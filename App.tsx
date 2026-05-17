@@ -21,9 +21,21 @@ import Pricing from './pages/Pricing';
 import Contact from './pages/Contact';
 import ContactSuccess from './pages/ContactSuccess';
 import AdminPortal from './pages/AdminPortal';
+import MasterClass from './pages/MasterClass';
+import MasterClassDetail from './pages/MasterClassDetail';
 
 const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<PageType>(PageType.HOME);
+  const [selectedCourseId, setSelectedCourseId] = useState<string | undefined>(undefined);
+
+  const handleNavigate = (page: PageType, courseId?: string) => {
+    setCurrentPage(page);
+    if (page === PageType.MASTER_CLASS_DETAILS) {
+      setSelectedCourseId(courseId);
+    } else {
+      setSelectedCourseId(undefined);
+    }
+  };
 
   useEffect(() => {
     console.log('✅ App component mounted successfully');
@@ -33,25 +45,32 @@ const App: React.FC = () => {
   const renderPage = () => {
     try {
       switch (currentPage) {
-        case PageType.HOME: return <Home onNavigate={setCurrentPage} />;
-        case PageType.ABOUT: return <About onNavigate={setCurrentPage} />;
-        case PageType.SERVICES: return <Services onNavigate={setCurrentPage} />;
-        case PageType.AI_AUTOMATION: return <AIAutomation onNavigate={setCurrentPage} />;
-        case PageType.SAAS_DEV: return <SaaSDevelopment onNavigate={setCurrentPage} />;
-        case PageType.MOBILE_CLOUD_APPS: return <MobileCloudApps onNavigate={setCurrentPage} />;
-        case PageType.CYBERSECURITY: return <Cybersecurity onNavigate={setCurrentPage} />;
-        case PageType.IT_OUTSOURCING: return <ITOutsourcing onNavigate={setCurrentPage} />;
-        case PageType.DIGITAL_MARKETING: return <DigitalMarketing onNavigate={setCurrentPage} />;
-        case PageType.SAP_TRAINING: return <SapTraining onNavigate={setCurrentPage} />;
-        case PageType.CORP_TRAINING: return <Training onNavigate={setCurrentPage} />;
+        case PageType.HOME: return <Home onNavigate={handleNavigate} />;
+        case PageType.ABOUT: return <About onNavigate={handleNavigate} />;
+        case PageType.SERVICES: return <Services onNavigate={handleNavigate} />;
+        case PageType.AI_AUTOMATION: return <AIAutomation onNavigate={handleNavigate} />;
+        case PageType.SAAS_DEV: return <SaaSDevelopment onNavigate={handleNavigate} />;
+        case PageType.MOBILE_CLOUD_APPS: return <MobileCloudApps onNavigate={handleNavigate} />;
+        case PageType.CYBERSECURITY: return <Cybersecurity onNavigate={handleNavigate} />;
+        case PageType.IT_OUTSOURCING: return <ITOutsourcing onNavigate={handleNavigate} />;
+        case PageType.DIGITAL_MARKETING: return <DigitalMarketing onNavigate={handleNavigate} />;
+        case PageType.SAP_TRAINING: return <SapTraining onNavigate={handleNavigate} />;
+        case PageType.MASTER_CLASS: return <MasterClass onNavigate={handleNavigate} />;
+        case PageType.MASTER_CLASS_DETAILS:
+          return selectedCourseId ? (
+            <MasterClassDetail courseId={selectedCourseId} onNavigate={handleNavigate} />
+          ) : (
+            <MasterClass onNavigate={handleNavigate} />
+          );
+        case PageType.CORP_TRAINING: return <Training onNavigate={handleNavigate} />;
         case PageType.UNI_TRAINING:
-        case PageType.COLLEGE_TRAINING: return <CollegeTraining onNavigate={setCurrentPage} />;
-        case PageType.CUSTOM_TRAINING: return <CustomTraining onNavigate={setCurrentPage} />;
-        case PageType.PRICING: return <Pricing onNavigate={setCurrentPage} />;
-        case PageType.CONTACT: return <Contact onNavigate={setCurrentPage} />;
-        case PageType.CONTACT_SUCCESS: return <ContactSuccess onNavigate={setCurrentPage} />;
-        case PageType.ADMIN_PORTAL: return <AdminPortal onNavigate={setCurrentPage} />;
-        default: return <Home onNavigate={setCurrentPage} />;
+        case PageType.COLLEGE_TRAINING: return <CollegeTraining onNavigate={handleNavigate} />;
+        case PageType.CUSTOM_TRAINING: return <CustomTraining onNavigate={handleNavigate} />;
+        case PageType.PRICING: return <Pricing onNavigate={handleNavigate} />;
+        case PageType.CONTACT: return <Contact onNavigate={handleNavigate} />;
+        case PageType.CONTACT_SUCCESS: return <ContactSuccess onNavigate={handleNavigate} />;
+        case PageType.ADMIN_PORTAL: return <AdminPortal onNavigate={handleNavigate} />;
+        default: return <Home onNavigate={handleNavigate} />;
       }
     } catch (error) {
       console.error('Error rendering page:', error);

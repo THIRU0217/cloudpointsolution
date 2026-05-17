@@ -8,7 +8,7 @@ import { Mail, MapPin, Linkedin, ChevronRight } from 'lucide-react';
 interface LayoutProps {
   children: ReactNode;
   currentPage: PageType;
-  onNavigate: (page: PageType) => void;
+  onNavigate: (page: PageType, courseId?: string) => void;
 }
 
 const LogoIcon = ({ className }: { className?: string }) => (

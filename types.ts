@@ -53,6 +53,8 @@ export enum PageType {
   IT_OUTSOURCING = 'it-outsourcing',
   DIGITAL_MARKETING = 'digital-marketing',
   SAP_TRAINING = 'sap-training',
+  MASTER_CLASS = 'master-class',
+  MASTER_CLASS_DETAILS = 'master-class-details',
   CORP_TRAINING = 'corp-training',
   UNI_TRAINING = 'uni-training',
   COLLEGE_TRAINING = 'college-training',

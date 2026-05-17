@@ -5,7 +5,7 @@ import { PageType } from '../types';
 
 interface NavbarProps {
   currentPage: PageType;
-  onNavigate: (page: PageType) => void;
+  onNavigate: (page: PageType, courseId?: string) => void;
 }
 
 const LogoIcon = ({ className }: { className?: string }) => (
@@ -65,6 +65,7 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
     { name: 'Home', type: PageType.HOME },
     { name: 'Solutions', type: PageType.SERVICES, hasDropdown: true },
     { name: 'Training', type: PageType.CORP_TRAINING },
+    { name: 'Master Class', type: PageType.MASTER_CLASS },
     { name: 'About', type: PageType.ABOUT },
   ];
 
